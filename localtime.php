@@ -4,7 +4,7 @@
 
 Plugin Name:  Local Time
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/localtime/
-Version:      1.0.0
+Version:      1.1.0
 Description:  Displays date and times in the user's timezone using Javascript. Heavily based on code from the <a href="http://p2theme.com/">P2 theme</a> by <a href="http://automattic.com/">Automattic</a>.
 Author:       Viper007Bond
 Author URI:   http://www.viper007bond.com/
@@ -21,10 +21,17 @@ class ViperLocalTime {
 		if ( !function_exists('esc_html') || defined('P2_JS_URL') || is_admin() )
 			return;
 
-		add_action( 'wp_head',      array(&$this, 'head_javascript') );
-		add_filter( 'the_date',     array(&$this, 'date_filter'), 1, 2 );
-		add_filter( 'get_the_time', array(&$this, 'time_filter'), 1, 2 );
+		add_action( 'wp_head',          array(&$this, 'head_javascript') );
 
+		// Posts
+		add_filter( 'the_date',         array(&$this, 'post_date_filter'), 1, 2 );
+		add_filter( 'get_the_time',     array(&$this, 'post_time_filter'), 1, 2 );
+
+		// Comments
+		add_filter( 'get_comment_date', array(&$this, 'comment_date_filter'), 1, 2 );
+		add_filter( 'get_comment_time', array(&$this, 'comment_time_filter'), 1, 2 );
+
+		// Load the locale script
 		wp_enqueue_script( 'wp-locale', plugins_url( 'wp-locale.js', __FILE__ ) , array( 'jquery', 'utils' ) );
 
 		// The localization functionality can't handle objects, that's why
@@ -67,22 +74,49 @@ class ViperLocalTime {
 
 
 	// Filter for the_date()
-	function date_filter( $the_date, $format ) {
+	function post_date_filter( $string, $format ) {
 		$format = ( empty($format) ) ? get_option('date_format') : $format;
-		return $this->add_data( $the_date, $format );
+		$gmttime = get_post_time( 'Y-m-d\TH:i:s\Z', true );
+		return $this->add_data( $string, $format, $gmttime );
 	}
 
 
 	// Filter for the_time()
-	function time_filter( $the_time, $format ) {
+	function post_time_filter( $string, $format ) {
 		$format = ( empty($format) ) ? get_option('time_format') : $format;
-		return $this->add_data( $the_time, $format );
+		$gmttime = get_post_time( 'Y-m-d\TH:i:s\Z', true );
+		return $this->add_data( $string, $format, $gmttime );
+	}
+
+
+	// Filter for get_comment_date()
+	function comment_date_filter( $string, $format ) {
+		$format = ( empty($format) ) ? get_option('date_format') : $format;
+		$gmttime = $this->get_raw_comment_time( 'Y-m-d\TH:i:s\Z', true );
+		return $this->add_data( $string, $format, $gmttime );
+	}
+
+
+	// Filter for get_comment_time()
+	function comment_time_filter( $string, $format ) {
+		$format = ( empty($format) ) ? get_option('time_format') : $format;
+		$gmttime = $this->get_raw_comment_time( 'Y-m-d\TH:i:s\Z', true );
+		return $this->add_data( $string, $format, $gmttime );
+	}
+
+
+	// Get the unfiltered version of get_comment_time()
+	function get_raw_comment_time( $d = '', $gmt = false, $translate = true ) {
+		remove_filter( 'get_comment_time', array(&$this, 'comment_time_filter'), 1, 2 );
+		$return = get_comment_time( $d, $gmt, $translate );
+		add_filter( 'get_comment_time', array(&$this, 'comment_time_filter'), 1, 2 );
+		return $return;
 	}
 
 
 	// Adds addtional HTML that contains the information for the Javascript
-	function add_data( $string, $format ) {
-		return '<span class="localtime">' . $string . '<span class="localtime-thetime hide">' . esc_html( get_post_time( 'Y-m-d\TH:i:s\Z', true ) ) . '</span><span class="localtime-format hide">' . esc_html( $format ) . '</span></span>';
+	function add_data( $string, $format, $gmttime ) {
+		return '<span class="localtime">' . $string . '<span class="localtime-thetime hide">' . esc_html( $gmttime ) . '</span><span class="localtime-format hide">' . esc_html( $format ) . '</span></span>';
 	}
 }
 

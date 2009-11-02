@@ -5,11 +5,11 @@ Requires at least: 2.8.5
 Tested up to: 2.9
 Stable tag: trunk
 
-Displays date and times in the user's timezone using Javascript. Heavily based on code from the P2 theme by Automattic.
+Displays post and comment date and times in the user's timezone using Javascript. Heavily based on code from the P2 theme by Automattic.
 
 == Description ==
 
-Displays date and times in the user's timezone using Javascript. No theme modifications are needed.
+Displays post and comment date and times in the user's timezone using Javascript. No theme modifications are needed.
 
 Heavily based on code from the [P2 theme](http://p2theme.com/) by [Automattic](http://automattic.com/).
 
@@ -30,6 +30,10 @@ Extract all files from the ZIP file, making sure to keep the file structure inta
 **See Also:** ["Installing Plugins" article on the WP Codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins)
 
 == ChangeLog ==
+
+**Version 1.1.0**
+
+* Add localization for comment dates and times.
 
 **Version 1.0.0**
 
