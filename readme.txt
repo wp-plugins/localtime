@@ -11,7 +11,7 @@ Displays date and times in the user's timezone using Javascript. Heavily based o
 
 Displays date and times in the user's timezone using Javascript. No theme modifications are needed.
 
-Heavily based on code from the [P2 theme](http://wordpress.org/extend/themes/p2) by [Automattic](http://automattic.com/).
+Heavily based on code from the [P2 theme](http://p2theme.com/) by [Automattic](http://automattic.com/).
 
 **Demo**
 
