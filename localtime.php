@@ -32,7 +32,7 @@ class ViperLocalTime {
 		add_filter( 'get_comment_time', array(&$this, 'comment_time_filter'), 1, 2 );
 
 		// Load the locale script
-		wp_enqueue_script( 'wp-locale', plugins_url( 'wp-locale.js', __FILE__ ) , array( 'jquery', 'utils' ) );
+		wp_enqueue_script( 'wp-locale', plugins_url( 'wp-locale.js', __FILE__ ) , array( 'jquery', 'utils' ), '20090617' );
 
 		// The localization functionality can't handle objects, that's why
 		// we are using poor man's hash maps here -- using prefixes of the variable names
@@ -51,7 +51,7 @@ class ViperLocalTime {
 
 	// Javascript that does the replacing
 	function head_javascript() { ?>
-<!-- Local Time v1.0.0 by Viper007Bond | http://www.viper007bond.com/wordpress-plugins/localtime/ -->
+<!-- Local Time v1.1.1 by Viper007Bond | http://www.viper007bond.com/wordpress-plugins/localtime/ -->
 <style type="text/css">.hide { display: none; }</style>
 <script type="text/javascript">
 /* <![CDATA[ */
