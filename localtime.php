@@ -4,7 +4,7 @@
 
 Plugin Name:  Local Time
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/localtime/
-Version:      1.1.0
+Version:      1.1.1
 Description:  Displays date and times in the user's timezone using Javascript. Heavily based on code from the <a href="http://p2theme.com/">P2 theme</a> by <a href="http://automattic.com/">Automattic</a>.
 Author:       Viper007Bond
 Author URI:   http://www.viper007bond.com/
@@ -116,6 +116,10 @@ class ViperLocalTime {
 
 	// Adds addtional HTML that contains the information for the Javascript
 	function add_data( $string, $format, $gmttime ) {
+		// If a Unix timestamp was requested, then don't modify it as it's most likely being used for PHP and not display
+		if ( 'U' === $format )
+			return $string;
+
 		return '<span class="localtime">' . $string . '<span class="localtime-thetime hide">' . esc_html( $gmttime ) . '</span><span class="localtime-format hide">' . esc_html( $format ) . '</span></span>';
 	}
 }
