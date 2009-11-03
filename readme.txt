@@ -31,6 +31,10 @@ Extract all files from the ZIP file, making sure to keep the file structure inta
 
 == ChangeLog ==
 
+**Version 1.1.2**
+
+* Don't do anything inside of feeds (I have a custom plugin that adds a credits block to the bottom of posts that contain a site link with the post's date and time).
+
 **Version 1.1.1**
 
 * If the time format is `U` (i.e. a Unix timestamp), then don't modify the output as it's most likely being used by PHP rather than being displayed.

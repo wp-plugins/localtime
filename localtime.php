@@ -18,7 +18,7 @@ class ViperLocalTime {
 		global $wp_locale;
 
 		// Don't do anything if the current theme is P2 as it does it itself
-		if ( !function_exists('esc_html') || defined('P2_JS_URL') || is_admin() )
+		if ( !function_exists('esc_html') || defined('P2_JS_URL') || is_admin() || is_feed() )
 			return;
 
 		add_action( 'wp_head',          array(&$this, 'head_javascript') );
