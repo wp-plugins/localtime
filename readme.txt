@@ -33,7 +33,9 @@ Extract all files from the ZIP file, making sure to keep the file structure inta
 
 **Version 1.1.2**
 
-* Don't do anything inside of feeds (I have a custom plugin that adds a credits block to the bottom of posts that contain a site link with the post's date and time).
+* Disable only for the new version of P2.
+* Disable if the WPTouch plugin is active and displaying it's theme (this plugin breaks with it).
+* Disable inside of feeds.
 
 **Version 1.1.1**
 
