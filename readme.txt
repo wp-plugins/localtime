@@ -31,6 +31,10 @@ Extract all files from the ZIP file, making sure to keep the file structure inta
 
 == ChangeLog ==
 
+**Version 1.1.4**
+
+* Move the `is_feed()` check later so it'll actually work.
+
 **Version 1.1.3**
 
 * Missing parenthesis was causing a parse error. Whoops!

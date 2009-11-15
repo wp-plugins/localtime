@@ -4,7 +4,7 @@
 
 Plugin Name:  Local Time
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/localtime/
-Version:      1.1.3
+Version:      1.1.4
 Description:  Displays date and times in the user's timezone using Javascript. Heavily based on code from the <a href="http://p2theme.com/">P2 theme</a> by <a href="http://automattic.com/">Automattic</a>.
 Author:       Viper007Bond
 Author URI:   http://www.viper007bond.com/
@@ -17,9 +17,9 @@ class ViperLocalTime {
 	function ViperLocalTime() {
 		global $wp_locale;
 
-		// Nothing to do in admin area, feeds, or if WPTouch plugin is active
+		// Nothing to do in admin area or if WPTouch plugin is active
 		// Also abort for the newer version of the P2 theme as it does this itself
-		if ( !function_exists('esc_html') || is_admin() || is_feed() || function_exists('p2_date_time_with_microformat') || ( function_exists('bnc_is_iphone') && bnc_is_iphone() ) )
+		if ( !function_exists('esc_html') || is_admin() || function_exists('p2_date_time_with_microformat') || ( function_exists('bnc_is_iphone') && bnc_is_iphone() ) )
 			return;
 
 		add_action( 'wp_head',          array(&$this, 'head_javascript') );
@@ -52,7 +52,7 @@ class ViperLocalTime {
 
 	// Javascript that does the replacing
 	function head_javascript() { ?>
-<!-- Local Time v1.1.3 by Viper007Bond | http://www.viper007bond.com/wordpress-plugins/localtime/ -->
+<!-- Local Time v1.1.4 by Viper007Bond | http://www.viper007bond.com/wordpress-plugins/localtime/ -->
 <style type="text/css">.hide { display: none; }</style>
 <script type="text/javascript">
 /* <![CDATA[ */
@@ -118,7 +118,8 @@ class ViperLocalTime {
 	// Adds addtional HTML that contains the information for the Javascript
 	function add_data( $string, $format, $gmttime ) {
 		// If a Unix timestamp was requested, then don't modify it as it's most likely being used for PHP and not display
-		if ( 'U' === $format )
+		// Also don't do anything for feeds
+		if ( 'U' === $format || is_feed() )
 			return $string;
 
 		return '<span class="localtime">' . $string . '<span class="localtime-thetime hide">' . esc_html( $gmttime ) . '</span><span class="localtime-format hide">' . esc_html( $format ) . '</span></span>';
