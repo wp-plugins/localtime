@@ -15,7 +15,7 @@ Heavily based on code from the [P2 theme](http://p2theme.com/) by [Automattic](h
 
 **Demo**
 
-Check out [my blog](http://www.viper007bond.com/) to try it yourself. All of the dates and times on my blog are PST (GMT-8 with no DST) but will be displayed in your timezone once the page is fully done loading.
+Check out [one of my sites](http://www.finalgear.com/) to try it yourself. All of the dates and times on the site are GMT+0 but will be displayed in your timezone once the page is fully done loading.
 
 == Installation ==
 
