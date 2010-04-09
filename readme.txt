@@ -31,28 +31,32 @@ Extract all files from the ZIP file, making sure to keep the file structure inta
 
 == ChangeLog ==
 
-**Version 1.1.4**
+= Version 1.1.5 =
+
+* Have the Javascript set the date and/or time's `title` value to "This date and/or time has been adjusted to match your timezone" so the user knows it's been adjusted.
+
+= Version 1.1.4 =
 
 * Move the `is_feed()` check later so it'll actually work.
 
-**Version 1.1.3**
+= Version 1.1.3 =
 
 * Missing parenthesis was causing a parse error. Whoops!
 
-**Version 1.1.2**
+= Version 1.1.2 =
 
 * Disable only for the new version of P2.
 * Disable if the WPTouch plugin is active and displaying it's theme (this plugin breaks with it).
 * Disable inside of feeds.
 
-**Version 1.1.1**
+= Version 1.1.1 =
 
 * If the time format is `U` (i.e. a Unix timestamp), then don't modify the output as it's most likely being used by PHP rather than being displayed.
 
-**Version 1.1.0**
+= Version 1.1.0 =
 
 * Add localization for comment dates and times.
 
-**Version 1.0.0**
+= Version 1.0.0 =
 
 * Initial release.
