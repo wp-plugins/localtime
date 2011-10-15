@@ -9,7 +9,7 @@ Displays post and comment date and times in the visitor's timezone using Javascr
 
 == Description ==
 
-Displays post and comment date and times in the visitors's timezone using Javascript. No theme modifications are needed.
+Displays post and comment date and times in the visitor's timezone using Javascript. No theme modifications are needed.
 
 Heavily based on code from the [P2 theme](http://p2theme.com/) by [Automattic](http://automattic.com/).
 
