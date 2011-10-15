@@ -5,7 +5,7 @@
 Plugin Name:  Local Time
 Plugin URI:   http://www.viper007bond.com/wordpress-plugins/localtime/
 Version:      1.2.0
-Description:  Localizes the date and times on your site to be in the visitor's timezone using Javascript. Heavily based on code from the <a href="http://p2theme.com/">P2 theme</a> by <a href="http://automattic.com/">Automattic</a>.
+Description:  Displays post and comment date and times in the visitor's timezone using Javascript. Heavily based on code from the <a href="http://p2theme.com/">P2 theme</a> by <a href="http://automattic.com/">Automattic</a>.
 Author:       Alex Mills (Viper007Bond)
 Author URI:   http://www.viper007bond.com/
 
