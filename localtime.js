@@ -1,3 +1,15 @@
+// Local Time
+jQuery(document).ready(function($) {
+	localtime_locale = new wp.locale(localtime.locale);
+	$('span.localtime').each(function() {
+		var t = $(this);
+		var f = t.attr('data-ltformat');
+		var d = localtime_locale.parseISO8601( t.attr('data-lttime') );
+		if (d) t.html( localtime_locale.date( f, d ) ).attr( 'title', localtime.translated_title );
+	});
+});
+
+// WP Local by Automattic
 if (typeof wp == 'undefined') wp = {};
 wp.locale = function(translations) {
 	this._parseLameDict = function(prefix, lameDict, internalVar) {

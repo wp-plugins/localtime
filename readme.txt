@@ -1,15 +1,15 @@
 === Local Time ===
 Contributors: Viper007Bond
-Tags: timezone, localization
-Requires at least: 2.8.5
-Tested up to: 2.9
+Tags: timezone, localization, locale
+Requires at least: 3.2
+Tested up to: 3.3
 Stable tag: trunk
 
-Displays post and comment date and times in the user's timezone using Javascript. Heavily based on code from the P2 theme by Automattic.
+Displays post and comment date and times in the visitor's timezone using Javascript. Heavily based on code from the P2 theme.
 
 == Description ==
 
-Displays post and comment date and times in the user's timezone using Javascript. No theme modifications are needed.
+Displays post and comment date and times in the visitors's timezone using Javascript. No theme modifications are needed.
 
 Heavily based on code from the [P2 theme](http://p2theme.com/) by [Automattic](http://automattic.com/).
 
@@ -19,44 +19,39 @@ Check out [one of my sites](http://www.finalgear.com/) to try it yourself. All o
 
 == Installation ==
 
-###Updgrading From A Previous Version###
-
-To upgrade from a previous version of this plugin, delete the entire folder and files from the previous version of the plugin and then follow the installation instructions below.
-
-###Installing The Plugin###
-
-Extract all files from the ZIP file, making sure to keep the file structure intact, and then upload it to `/wp-content/plugins/`. Then just visit your admin area and activate the plugin. That's it!
-
-**See Also:** ["Installing Plugins" article on the WP Codex](http://codex.wordpress.org/Managing_Plugins#Installing_Plugins)
+Visit Plugins &rarr; Add New in your administration area and search for the name of this plugin.
 
 == ChangeLog ==
 
-= Version 1.1.5 =
+= Version 1.2.0 =
+* Make use of HTML `data` attributes instead of nested and hidden `<span>`s to store the additional data.
+* Move the Javascript all into one `.js` file so it can be cached.
+* Rewriting of the filters to reduce code duplication.
 
+= Version 1.1.5 =
 * Have the Javascript set the date and/or time's `title` value to "This date and/or time has been adjusted to match your timezone" so the user knows it's been adjusted.
 
 = Version 1.1.4 =
-
 * Move the `is_feed()` check later so it'll actually work.
 
 = Version 1.1.3 =
-
 * Missing parenthesis was causing a parse error. Whoops!
 
 = Version 1.1.2 =
-
 * Disable only for the new version of P2.
 * Disable if the WPTouch plugin is active and displaying it's theme (this plugin breaks with it).
 * Disable inside of feeds.
 
 = Version 1.1.1 =
-
 * If the time format is `U` (i.e. a Unix timestamp), then don't modify the output as it's most likely being used by PHP rather than being displayed.
 
 = Version 1.1.0 =
-
 * Add localization for comment dates and times.
 
 = Version 1.0.0 =
-
 * Initial release.
+
+== Upgrade Notice ==
+
+= 1.2.0 =
+Leaner, meaner, and faster.
