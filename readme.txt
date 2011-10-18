@@ -1,7 +1,7 @@
 === Local Time ===
 Contributors: Viper007Bond
 Tags: timezone, localization, locale
-Requires at least: 3.2
+Requires at least: 3.3
 Tested up to: 3.3
 Stable tag: trunk
 
