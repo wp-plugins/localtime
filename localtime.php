@@ -83,7 +83,7 @@ class ViperLocalTime {
 					break;
 
 				default;
-					return 'missing format unknown filter';
+					return $string;
 			}
 		}
 
