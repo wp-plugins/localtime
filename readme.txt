@@ -23,6 +23,9 @@ Visit Plugins &rarr; Add New in your administration area and search for the name
 
 == ChangeLog ==
 
+= Version 1.2.1 =
+* Fix bug affecting the post time functions. Whoops.
+
 = Version 1.2.0 =
 * Make use of HTML `data` attributes instead of nested and hidden `<span>`s to store the additional data.
 * Move the Javascript all into one `.js` file so it can be cached.
@@ -52,6 +55,9 @@ Visit Plugins &rarr; Add New in your administration area and search for the name
 * Initial release.
 
 == Upgrade Notice ==
+
+= 1.2.1 =
+Fixes broken post times. Whoops.
 
 = 1.2.0 =
 Leaner, meaner, and faster.
